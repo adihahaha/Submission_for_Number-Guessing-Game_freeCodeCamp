@@ -22,7 +22,7 @@ then
   INSERT_USER=$($PSQL "INSERT INTO users(username, games_played, best_game) VALUES('$USERNAME', 1, 0)")
 
   #set best_game as zero for new user
-  BEST_GAMES=0
+  BEST_GAME=0
 
 # if user exists
 else
