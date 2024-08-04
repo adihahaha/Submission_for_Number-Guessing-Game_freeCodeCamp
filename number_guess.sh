@@ -26,6 +26,8 @@ then
 
 # if user exists
 else
+  # increment games_played by one
+  UPDATE_TRIAL=$($PSQL "UPDATE users SET games_played = games_played + 1 WHERE username='$USERNAME'")
 
   # set games_played and best_game
   GAMES_PLAYED=$(echo $USER_INFO | cut -d '|' -f 1 | xargs)
@@ -77,9 +79,6 @@ GUESSING() {
 
   # increse guess by 1, for final correct guess
   let GUESSES=GUESSES+1
-
-  # increment games_played by one
-  UPDATE_TRIAL=$($PSQL "UPDATE users SET games_played = games_played + 1 WHERE username='$USERNAME'")
 
   # if better than last time
   if [[ $GUESSES -lt $BEST_GAME ]]
