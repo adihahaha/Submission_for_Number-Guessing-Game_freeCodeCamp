@@ -19,7 +19,7 @@ if [[ -z $USER_INFO ]]
 then
   #insert user
   echo "Welcome, $USERNAME! It looks like this is your first time here."
-  INSERT_USER=$($PSQL "INSERT INTO users(username) VALUES('$USERNAME')")
+  INSERT_USER=$($PSQL "INSERT INTO users(username, games_played) VALUES('$USERNAME', 0)")
 
   #set best_game as zero for new user
   BEST_GAME=11111111
