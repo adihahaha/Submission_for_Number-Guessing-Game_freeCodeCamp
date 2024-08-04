@@ -3,7 +3,7 @@
 PSQL="psql --username=freecodecamp --dbname=num_guess_game -t --no-align -c"
 
 # generate random number
-SECRET_NUM=$(( $RANDOM / 1000 + 1 )) )
+SECRET_NUM=$(( $RANDOM / 1000 + 1 ))
 
 
 # input username
