@@ -46,14 +46,14 @@ echo "Guess the secret number between 1 and 1000:"
 
 GUESSING() {
   
-
   read NUM
 
   # if guess is not a number
   if [[ ! $NUM =~ ^[0-9]+$ ]]
   then
+    let GUESSES=GUESSES+1
     echo "That is not an integer, guess again:"
-    let GUESS=GUESS+1
+    
     GUESSING
 
   else
