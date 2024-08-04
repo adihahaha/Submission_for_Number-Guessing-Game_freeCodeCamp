@@ -53,7 +53,8 @@ GUESSING() {
   if [[ ! $NUM =~ ^[0-9]+$ ]]
   then
     echo "That is not an integer, guess again:"
-    read NUM
+    let GUESS=GUESS+1
+    GUESSING
 
   else
     
@@ -83,10 +84,9 @@ GUESSING() {
   # if better than last time
   if [[ $GUESSES -lt $BEST_GAME ]]
   then
-
     # update best_game
-
     UPDATE_PERF=$($PSQL "UPDATE users SET best_game=$GUESSES")
+  
   fi
 
   echo "You guessed it in $GUESSES tries. The secret number was $SECRET_NUM. Nice job!"
