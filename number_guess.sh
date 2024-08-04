@@ -84,6 +84,9 @@ GUESSING() {
   # if better than last time
   if [[ $GUESSES -lt $BEST_GAME ]]
   then
+
+    # increment games_played by one
+    UPDATE_TRIAL=$($PSQL "UPDATE users SET games_played = games_played + 1 WHERE username='$USERNAME'")
     # update best_game
     UPDATE_PERF=$($PSQL "UPDATE users SET best_game=$GUESSES")
   
